@@ -1,22 +1,34 @@
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 
+export default function NewsInfo() {
+  const [news, setNews] = useState([]);
 
-export default function NewsInfo(){
-    const [news, setNewNews] = useState({
-        titleText: "example",
-        articleText: "example",
-        publishedTime: "example"
-    })
+  useEffect(function () {
+    fetch("https://newsapi.org/v2/top-headlines?country=us&apiKey=796ed59ef13445bf90ce58374c281f6b")
+      .then((res) => res.json())
+      .then((data) => {
+        const updatedNews = data.articles.slice(0, 3).map(article => ({
+          titleText: article.title,
+          authorText: article.author,
+          articleText: article.description,
+          publishedTime: new Date(article.publishedAt).toLocaleString()
+        }));
+        setNews(updatedNews);
+      });
+  }, []);
 
-    const [allNews, setAllNews] = useState();
+  console.log(news);
 
-    useEffect(function(){
-        fetch("https://newsapi.org/v2/top-headlines?country=us&apiKey=796ed59ef13445bf90ce58374c281f6b")
-            .then(res => res.json())
-            .then(allNews => setAllNews(allNews))
-            
-    }, [])
-
-    console.log(allNews)
+  return (
+    <div className="newsSpace">
+      {news.map((item, index) => (
+        <div key={index}>
+          <h3 className="title">{item.titleText}</h3>
+          <p className="author">{item.authorText}</p>
+          <p className="articleBody">{item.articleText}</p>
+          <p className="publishDate">{item.publishedTime}</p>
+        </div>
+      ))}
+    </div>
+  );
 }
