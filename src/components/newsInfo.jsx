@@ -9,6 +9,7 @@ export default function NewsInfo() {
       .then((data) => {
         const updatedNews = data.articles.map(article => ({
           titleText: article.title,
+          newsImage: article.image,
           authorText: article.source.name,
           articleText: article.description,
           sourceText: article.url,
@@ -23,7 +24,8 @@ export default function NewsInfo() {
   return (
     <div className="newsSpace">
       {news.map((item, index) => (
-        <div key={index}>
+        <div key={index} className="newsDivider">
+          <div className="articleImage"><img src={item.newsImage} alt={item.titleText}/></div>
           <h3 className="title">{item.titleText}</h3>
           <p className="articleBody">{item.articleText}</p>
           <p className="sourceText"><a href={item.sourceText}>Read More</a></p>

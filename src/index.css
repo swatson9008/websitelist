@@ -79,6 +79,11 @@ main {
   padding: 15px;
 }
 
+.articleImage {
+  display: flex;
+  justify-content: center;
+}
+
 .author{
   font-style: italic;
   font-size: 0.8em;
@@ -109,5 +114,19 @@ main {
 @media (max-width: 499px) {
   .newsSpace{
   width: 100%;
+}
+}
+
+@media (max-width: 699px) {
+  .articleImage img {
+  max-width: 100%;
+  height: auto;
+}
+}
+
+@media (min-width: 700px) {
+  .articleImage img {
+  max-width: 65%;
+  height: auto;
 }
 }
