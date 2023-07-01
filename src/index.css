@@ -59,7 +59,7 @@ button:focus-visible {
     background-color: #ffffff;
   }
   a:hover {
-    color: #747bff;
+    color: #303599;
   }
   button {
     background-color: #f9f9f9;
@@ -94,3 +94,11 @@ main {
   text-align: right;
   font-size: 0.8em;
 }
+
+.bottomArea {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media 
