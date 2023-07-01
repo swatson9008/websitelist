@@ -25,10 +25,8 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
   place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  background-color: #535bf2;
 }
 
 h1 {
@@ -66,4 +64,33 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+
+.newsSpace{
+  background-color: #ffffff;
+  width: 50%;
+  height: 100%;
+  padding: 15px;
+}
+
+.author{
+  font-style: italic;
+  font-size: 0.8em;
+  text-align: center;
+}
+
+.title{
+  text-align: left;
+}
+
+.publishDate{
+  text-align: right;
+  font-size: 0.8em;
 }

@@ -7,7 +7,7 @@ export default function NewsInfo() {
     fetch("https://newsapi.org/v2/top-headlines?country=us&apiKey=796ed59ef13445bf90ce58374c281f6b")
       .then((res) => res.json())
       .then((data) => {
-        const updatedNews = data.articles.slice(0, 3).map(article => ({
+        const updatedNews = data.articles.slice(0, 10).map(article => ({
           titleText: article.title,
           authorText: article.author,
           articleText: article.description,
@@ -27,6 +27,7 @@ export default function NewsInfo() {
           <p className="author">{item.authorText}</p>
           <p className="articleBody">{item.articleText}</p>
           <p className="publishDate">{item.publishedTime}</p>
+          <hr />
         </div>
       ))}
     </div>
