@@ -25,10 +25,10 @@ export default function NewsInfo() {
       {news.map((item, index) => (
         <div key={index}>
           <h3 className="title">{item.titleText}</h3>
-          <p className="author">{item.authorText}</p>
           <p className="articleBody">{item.articleText}</p>
           <p className="sourceText"><a href="{item.sourceText}">Read More</a></p>
-          <p className="publishDate">{item.publishedTime}</p>
+          <div className="bottomArea"><p className="author">{item.authorText}</p>
+          <span className="publishDate">{item.publishedTime}</span></div>
           <hr />
         </div>
       ))}
