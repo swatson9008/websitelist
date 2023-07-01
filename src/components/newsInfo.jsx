@@ -26,7 +26,7 @@ export default function NewsInfo() {
         <div key={index}>
           <h3 className="title">{item.titleText}</h3>
           <p className="articleBody">{item.articleText}</p>
-          <p className="sourceText"><a href="{item.sourceText}">Read More</a></p>
+          <p className="sourceText"><a href={item.sourceText}>Read More</a></p>
           <div className="bottomArea"><p className="author">{item.authorText}</p>
           <span className="publishDate">{item.publishedTime}</span></div>
           <hr />

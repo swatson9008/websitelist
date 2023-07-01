@@ -75,7 +75,6 @@ main {
 
 .newsSpace{
   background-color: #ffffff;
-  width: 50%;
   height: 100%;
   padding: 15px;
 }
@@ -101,4 +100,14 @@ main {
   justify-content: space-between;
 }
 
-@media 
+@media (min-width: 500px) {
+  .newsSpace{
+  width: 50%;
+}
+}
+
+@media (max-width: 499px) {
+  .newsSpace{
+  width: 100%;
+}
+}
