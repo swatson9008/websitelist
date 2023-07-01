@@ -4,13 +4,14 @@ export default function NewsInfo() {
   const [news, setNews] = useState([]);
 
   useEffect(function () {
-    fetch("https://newsapi.org/v2/top-headlines?country=us&apiKey=796ed59ef13445bf90ce58374c281f6b")
+    fetch("https://gnews.io/api/v4/top-headlines?category=general&lang=en&country=us&max=10&apikey=8d8317ef5533cc42f0f22d13c8dfbfe2")
       .then((res) => res.json())
       .then((data) => {
-        const updatedNews = data.articles.slice(0, 10).map(article => ({
+        const updatedNews = data.articles.map(article => ({
           titleText: article.title,
-          authorText: article.author,
+          authorText: article.source.name,
           articleText: article.description,
+          sourceText: article.url,
           publishedTime: new Date(article.publishedAt).toLocaleString()
         }));
         setNews(updatedNews);
@@ -26,6 +27,7 @@ export default function NewsInfo() {
           <h3 className="title">{item.titleText}</h3>
           <p className="author">{item.authorText}</p>
           <p className="articleBody">{item.articleText}</p>
+          <p className="sourceText"><a href="{item.sourceText}">Read More</a></p>
           <p className="publishDate">{item.publishedTime}</p>
           <hr />
         </div>
